@@ -1,0 +1,16 @@
+<h1 class = "text-center text-white my-3" >All Lists</h1>
+
+<div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+        <div class="card-category border border-dark" style="background-image: linear-gradient(rgba(158, 3, 3, 0.4), rgba(158, 3, 3, 0.7))">
+          <p><%= list.name%></p>
+          <%# <%= link_to list.name, list_path(list), class: "list-group-item link-light"%>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
+<%# <%= link_to "Create New List", new_list_path %>
+<%# url(https://source.unsplash.com/random) %>
+<%# <%= link_to list.name, list_path(list), class: "list-group-item link-light"%>

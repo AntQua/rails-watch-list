@@ -1,0 +1,15 @@
+// Import your components CSS files here.
+@import "alert";
+@import "avatar";
+@import "form_legend_clear";
+@import "navbar";
+@import "card_category";
+@import "cards_grid";
+
+a {
+  text-decoration: none;
+}
+
+body{
+  background-color: $light-gray;
+}
