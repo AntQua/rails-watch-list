@@ -8,6 +8,9 @@
 require 'open-uri'
 require 'json'
 
+Movie.destroy_all
+
+
 response = URI.open('https://tmdb.lewagon.com/movie/top_rated').read
 movies_data = JSON.parse(response)['results']
 
