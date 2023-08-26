@@ -5,6 +5,7 @@
 @import "navbar";
 @import "card_category";
 @import "cards_grid";
+@import "card-trip";
 
 a {
   text-decoration: none;
@@ -13,4 +14,3 @@ a {
 body{
   background-color: $light-gray;
 }
-

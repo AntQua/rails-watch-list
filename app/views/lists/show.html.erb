@@ -8,15 +8,26 @@
 <button type="button" class="btn btn-danger"><%= link_to "Delete List", list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-dark" %></button>
 
 
-<h2>--------------Bookmarks--------------</h2>
-<% @list.bookmarks.each do |bookmark| %>
-  <div>
-    <%= bookmark.movie.title %>
-    <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, width: 200 %>
-    <%= bookmark.comment %>
-    <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-  </div>
-<% end %>
+<h2 class="my-5 text-center">--------------Movies--------------</h2>
+
+<div class="cards">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card-trip">
+      <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, width: 200 %>
+      <div class="p-3 d-flex flex-column">
+        <strong><%= bookmark.movie.title %> <span class="text-muted font-weight-normal">• <%= bookmark.movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong>
+        <small class="text-muted"><%= bookmark.movie.overview %></small>
+        <div class="d-flex align-items-end justify-content-between pt-4">
+          <div>
+            <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
+          </div>
+          <%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{bookmark.movie.title} from your #{@list.name} list?", class: 'text-danger' } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 
 <h2>--------------Add New Bookmark--------------</h2>
 <%= simple_form_for [@list, Bookmark.new] do |f| %>
