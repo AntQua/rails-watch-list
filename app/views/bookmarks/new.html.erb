@@ -1,7 +1,7 @@
-<h1>Add New Bookmark</h1>
+<%# <h1>Add New Bookmark</h1>
 <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.association :movie, label_method: :title, value_method: :id %>
-  <%= f.input :comment %>
-  <%= f.submit "Add Bookmark" %>
-<% end %>
-<%= link_to "Back to List", list_path(@list) %>
+  <%# <%= f.association :movie, label_method: :title, value_method: :id %>
+ <%#  <%= f.input :comment %>
+ <%#  <%= f.submit "Add Bookmark" %>
+<%# <% end %>
+<%# <%= link_to "Back to List", list_path(@list) %>
